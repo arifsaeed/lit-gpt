@@ -12,3 +12,4 @@ wandb
 
 tests/original_falcon_40b.py
 /model_weights
+/checkpoints
