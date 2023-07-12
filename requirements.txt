@@ -6,3 +6,5 @@ bitsandbytes  # quantize
 scipy  # TODO: remove when bnb has resolved https://github.com/TimDettmers/bitsandbytes/issues/544 and released the fix
 datasets  # quantize/gptq.py
 zstandard  # prepare_redpajama.py
+huggingface_hub
+jsonlines
