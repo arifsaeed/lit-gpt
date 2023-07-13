@@ -37,7 +37,7 @@ python finetune/adapter_v2.py --checkpoint_dir checkpoints/stabilityai/stablelm-
 ### For Finetuning and downloading model and weights and downloading training data
 python finetune/adapter_v2.py \
 --checkpoint_dir checkpoints/tiiuae/falcon-7b \
---credentials_path /home/arif/Documents/LLM/sandpit/lit-gpt/credentials.csv \
+--credentials_path /workspace/credentials.csv \
 --data_dir data/chat \
 --out_dir out/adapter_v2/tiiuae7b \
 --setup_model True \
