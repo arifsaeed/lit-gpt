@@ -8,3 +8,5 @@ datasets  # quantize/gptq.py
 zstandard  # prepare_redpajama.py
 huggingface_hub
 jsonlines
+boto3
+awscli

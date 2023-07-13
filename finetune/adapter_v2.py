@@ -25,6 +25,8 @@ from lit_gpt.tokenizer import Tokenizer
 from lit_gpt.utils import lazy_load, check_valid_checkpoint_dir, step_csv_logger, chunked_cross_entropy
 from lit_gpt.speed_monitor import SpeedMonitor, measure_flops, estimate_flops
 from scripts.prepare_alpaca import generate_prompt
+from storage.cloud_mgr import CloudManager
+from model_init.download_setup_model import init_model
 
 eval_interval = 600
 save_interval = 1000
@@ -55,7 +57,15 @@ def setup(
     out_dir: Path = Path("out/adapter_v2/alpaca"),
     precision: Optional[str] = None,
     tpu: bool = False,
+    credentials_path: Path=("/home/arif/Documents/LLM/sandpit/lit-gpt/credentials.csv"),
+    setup_model:bool=False,
+    model: Optional[str] =None
 ):
+    
+    if setup_model:
+        init_model(model,checkpoint_dir)
+    cloudManager = CloudManager(credentials_path)
+    cloudManager.download_all_files(["test.pt","train.pt"],data_dir)
     if precision is None:
         precision = "32-true" if tpu else "bf16-mixed"
     fabric_devices = devices
