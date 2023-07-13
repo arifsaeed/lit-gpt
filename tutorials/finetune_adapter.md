@@ -34,6 +34,17 @@ or for Adapter V2
 python finetune/adapter_v2.py --checkpoint_dir checkpoints/stabilityai/stablelm-base-alpha-3b
 ```
 
+### For Finetuning and downloading model and weights and downloading training data
+python finetune/adapter_v2.py \
+--checkpoint_dir checkpoints/tiiuae/falcon-7b \
+--credentials_path /home/arif/Documents/LLM/sandpit/lit-gpt/credentials.csv \
+--data_dir data/chat \
+--out_dir out/adapter_v2/tiiuae7b \
+--setup_model True \
+--model tiiuae/falcon-7b
+
+
+
 The finetuning requires at least one GPU with ~12 GB memory.
 You can speed up training by setting the `devices` variable in the script to utilize more GPUs if available.
 Depending on the available GPU memory, you can also tune the `micro_batch_size` parameter to utilize the GPU efficiently.

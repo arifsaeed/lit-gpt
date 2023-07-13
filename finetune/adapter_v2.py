@@ -61,6 +61,15 @@ def setup(
     setup_model:bool=False,
     model: Optional[str] =None
 ):
+    print(f"*****data_dir {data_dir}")
+    print(f"*****checkpoint_dir {checkpoint_dir}")
+    print(f"*****out_dir {out_dir}")
+    print(f"*****precision {precision}")
+    print(f"*****tpu {tpu}")
+    print(f"*****credentials_path {credentials_path}")
+    print(f"*****setup_model {setup_model}")
+    print(f"*****model {model}")
+    
     
     if setup_model:
         init_model(model,checkpoint_dir)
