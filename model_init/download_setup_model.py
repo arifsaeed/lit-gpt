@@ -10,4 +10,4 @@ from scripts.convert_hf_checkpoint import convert_hf_checkpoint
 
 def init_model(model,checkpoint_dir):
     download_from_hub(model)
-    convert_hf_checkpoint(checkpoint_dir)  
+    convert_hf_checkpoint(checkpoint_dir=checkpoint_dir)  

@@ -59,6 +59,7 @@ def setup(
     tpu: bool = False,
     credentials_path: Path=("/home/arif/Documents/LLM/sandpit/lit-gpt/credentials.csv"),
     setup_model:bool=False,
+    download_data:bool=False,
     model: Optional[str] =None
 ):
     print(f"*****data_dir {data_dir}")
@@ -71,10 +72,15 @@ def setup(
     print(f"*****model {model}")
     
     
+    #if model has not been setup then download it from hf and convert it to lit gpt format
     if setup_model:
         init_model(model,checkpoint_dir)
-    cloudManager = CloudManager(credentials_path)
-    cloudManager.download_all_files(["test.pt","train.pt"],data_dir)
+    
+    #if data needs to be downloaded from somewhere
+    if download_data:
+        cloudManager = CloudManager(credentials_path)
+        cloudManager.download_all_files(["test.pt","train.pt"],data_dir)
+        
     if precision is None:
         precision = "32-true" if tpu else "bf16-mixed"
     fabric_devices = devices
